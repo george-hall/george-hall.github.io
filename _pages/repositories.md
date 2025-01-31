@@ -12,7 +12,7 @@ nav_order: 4
 I have a number of GitHub accounts from points in my career:
 
 - [george-hall-ucl](https://github.com/george-hall-ucl): From my current position, mainly single-cell and spatial transcriptomics.
-- [george-hall-sheff](https://github.com/george-hall-wtsi): From my time at the Sanger Institute, software to quantify dataset complexity.
+- [george-hall-wtsi](https://github.com/george-hall-wtsi): From my time at the Sanger Institute, software to quantify dataset complexity.
 - [george-hall](https://github.com/george-hall): Personal projects.
 
 {% endif %}
