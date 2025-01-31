@@ -1,14 +1,13 @@
 github_users:
-  - torvalds
-  - alshedivat
+  - george-hall-ucl
+  - george-hall-sheff
+  - george-hall-wtsi
+  - george-hall
 
 repo_description_lines_max: 2
 
 github_repos:
-  - alshedivat/al-folio
-  - jekyll/jekyll
-  - twbs/bootstrap
-  - jquery/jquery
-  - FortAwesome/Font-Awesome
-  - mathjax/MathJax
-  - jpswalsh/academicons
+  - george-hall-ucl/dawnn
+  - george-hall-ucl/Portable-CELLxGENE
+  - george-hall-ucl/reversibility_of_rocki_paper_scrnaseq
+  - george-hall-ucl/SpatialFeaturePlotBlend
