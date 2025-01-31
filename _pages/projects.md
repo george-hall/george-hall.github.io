@@ -1,12 +1,22 @@
 ---
 layout: page
-title: projects
+title: research
 permalink: /projects/
 description: A growing collection of your cool projects.
 nav: true
-nav_order: 3
+nav_order: 2
 display_categories: [work, fun]
+dropdown: true
 horizontal: false
+children:
+    - title: postdoctoral
+      permalink: /projects/postdoctoral/
+    - title: divider
+    - title: doctoral
+      permalink: /projects/doctoral/
+    - title: divider
+    - title: predoctoral
+      permalink: /projects/predoctoral/
 ---
 
 <!-- pages/projects.md -->
