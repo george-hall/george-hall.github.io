@@ -5,7 +5,7 @@ permalink: /
 
 profile:
   align: right
-  image: prof_pic.jpg
+  image: prof_pic_color.png
   image_cicular: false # crops the image to make it circular
   address: >
     <p>Zayed Centre for Research</p>
