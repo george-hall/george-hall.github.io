@@ -1,4 +1,153 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://george-hall.github.io/feed.xml" rel="self" type="application/atom+xml"/><link href="https://george-hall.github.io/" rel="alternate" type="text/html" hreflang="en"/><updated>2025-12-18T14:24:10+00:00</updated><id>https://george-hall.github.io/feed.xml</id><title type="html">blank</title><subtitle>My personal site! </subtitle><entry><title type="html">How to check whether two directories are identical</title><link href="https://george-hall.github.io/blog/2025/verifying-whether-two-directories-identical/" rel="alternate" type="text/html" title="How to check whether two directories are identical"/><published>2025-12-18T00:00:00+00:00</published><updated>2025-12-18T00:00:00+00:00</updated><id>https://george-hall.github.io/blog/2025/verifying-whether-two-directories-identical</id><content type="html" xml:base="https://george-hall.github.io/blog/2025/verifying-whether-two-directories-identical/"><![CDATA[<p>When copying a directory containing many files, it is important to make sure that everything has copied correctly. This post shows a simple way of doing so (method based on answers given <a href="https://stackoverflow.com/questions/1657232/how-can-i-calculate-an-md5-checksum-of-a-directory">here</a>).</p> <p><br/></p> <h3 id="quick-start">Quick start</h3> <p>Run the following command at the root of each directory whose integrity you want to verify (i.e. the original directory and its copy). If the outputs match, then the directories contain the same contents.</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="o">{</span> find <span class="nb">.</span> <span class="nt">-type</span> f <span class="nt">-exec</span> <span class="nb">md5sum</span> <span class="o">{}</span> <span class="se">\;</span> <span class="o">&amp;&amp;</span> find <span class="nb">.</span> <span class="p">;</span> <span class="o">}</span> | <span class="nb">sort</span> <span class="nt">-k</span> 1 | <span class="nb">md5sum</span>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://george-hall.github.io/feed.xml" rel="self" type="application/atom+xml"/><link href="https://george-hall.github.io/" rel="alternate" type="text/html" hreflang="en"/><updated>2025-12-18T16:36:19+00:00</updated><id>https://george-hall.github.io/feed.xml</id><title type="html">blank</title><subtitle>My personal site! </subtitle><entry><title type="html">My configuration files</title><link href="https://george-hall.github.io/blog/2025/command-line-configuration-files/" rel="alternate" type="text/html" title="My configuration files"/><published>2025-12-18T00:00:00+00:00</published><updated>2025-12-18T00:00:00+00:00</updated><id>https://george-hall.github.io/blog/2025/command-line-configuration-files</id><content type="html" xml:base="https://george-hall.github.io/blog/2025/command-line-configuration-files/"><![CDATA[<p>I have been using the command line nearly every day for over a decade now. At first, this way of working feels inefficient, but you soon learn small changes that can be made to the interface to make your life easier. This page contains the most useful settings that I have collected over the years. If you see anything you think will be useful, you can copy the lines into your own configuration files. They are stored in your home directory and are hidden since their names begin with a dot.</p> <p>The <code class="language-plaintext highlighter-rouge">.bashrc</code> and <code class="language-plaintext highlighter-rouge">.inputrc</code> files control the behaviour of <code class="language-plaintext highlighter-rouge">bash</code> and the way in which the user can enter text at the command line, respectively. The <code class="language-plaintext highlighter-rouge">.vimrc</code> file is a little different since it controls a specific program: my favourite text editor, <code class="language-plaintext highlighter-rouge">vim</code>, so you only need to look at those options if you use that software.</p> <p><br/></p> <h4 id="bashrc"><code class="language-plaintext highlighter-rouge">.bashrc</code></h4> <p>This file is loaded (“sourced”) automatically at the start of a new <code class="language-plaintext highlighter-rouge">bash</code> session. It can be loaded in a running session with <code class="language-plaintext highlighter-rouge">source ~/.bashrc</code>. My file makes extensive use of aliases, which allow commands to be given other names. For example, the first alias means that if the user types <code class="language-plaintext highlighter-rouge">sl</code> then <code class="language-plaintext highlighter-rouge">bash</code> will behave as if they have typed <code class="language-plaintext highlighter-rouge">ls</code>.</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Stop `ls` typo</span>
+<span class="nb">alias </span><span class="nv">sl</span><span class="o">=</span><span class="s1">'ls'</span>
+
+<span class="c"># Make `ls` print more details, sorted in reverse chronological order with</span>
+<span class="c"># human-readable file sizes.</span>
+<span class="nb">alias </span><span class="nv">lsa</span><span class="o">=</span><span class="s1">'ls -lrthG'</span>
+<span class="c"># Map all permuations of `lsa` back to `lsa`</span>
+<span class="nb">alias </span><span class="nv">sla</span><span class="o">=</span><span class="s1">'lsa'</span>
+<span class="nb">alias </span><span class="nv">sal</span><span class="o">=</span><span class="s1">'lsa'</span>
+<span class="nb">alias </span><span class="nv">als</span><span class="o">=</span><span class="s1">'lsa'</span>
+<span class="nb">alias </span><span class="nv">asl</span><span class="o">=</span><span class="s1">'lsa'</span>
+<span class="nb">alias </span><span class="nv">las</span><span class="o">=</span><span class="s1">'lsa'</span>
+<span class="c"># Another typo prevention</span>
+<span class="nb">alias </span><span class="nv">as</span><span class="o">=</span><span class="s1">'lsa'</span>
+
+<span class="c"># Move up one/two/etc directory with ../.../etc</span>
+<span class="nb">alias</span> ..<span class="o">=</span><span class="s1">'cd ..'</span>
+<span class="nb">alias</span> ...<span class="o">=</span><span class="s1">'cd ../../'</span>
+<span class="nb">alias</span> ....<span class="o">=</span><span class="s1">'cd ../../../'</span>
+<span class="nb">alias</span> .....<span class="o">=</span><span class="s1">'cd ../../../../'</span>
+
+<span class="c"># Add colour to grep</span>
+<span class="nb">alias grep</span><span class="o">=</span><span class="s1">'grep --color=auto'</span>
+
+<span class="c"># Shortcut for `git status`</span>
+<span class="nb">alias </span><span class="nv">st</span><span class="o">=</span><span class="s1">'git status'</span>
+
+<span class="c"># More typos</span>
+<span class="nb">alias </span><span class="nv">les</span><span class="o">=</span><span class="s1">'less'</span>
+<span class="nb">alias </span><span class="nv">kess</span><span class="o">=</span><span class="s1">'less'</span>
+
+<span class="c"># Keep much more history</span>
+<span class="nb">export </span><span class="nv">HISTCONTROL</span><span class="o">=</span>ignoredups:erasedups
+<span class="nb">export </span><span class="nv">HISTFILESIZE</span><span class="o">=</span>500000
+<span class="nb">export </span><span class="nv">HISTSIZE</span><span class="o">=</span>100000
+</code></pre></div></div> <p><br/></p> <h4 id="inputrc"><code class="language-plaintext highlighter-rouge">.inputrc</code></h4> <p>This file contains options that control the actual input at the command line. The first two lines are particularly useful since they allow you to move through previous commands more efficiently by only displaying lines in your history that begin with the text you have already typed. For example, if you start typing <code class="language-plaintext highlighter-rouge">git</code> and hit the up arrow then you will cycle through previous commands that begin with <code class="language-plaintext highlighter-rouge">git</code>.</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"</span><span class="se">\e</span><span class="s2">[A"</span>: history-search-backward
+<span class="s2">"</span><span class="se">\e</span><span class="s2">[B"</span>: history-search-forward
+
+<span class="c"># Clear screen with `control j`.</span>
+<span class="s2">"</span><span class="se">\C</span><span class="s2">-j"</span>: clear-screen
+</code></pre></div></div> <p><br/></p> <h4 id="vimrc"><code class="language-plaintext highlighter-rouge">.vimrc</code></h4> <p>This file sets options in <code class="language-plaintext highlighter-rouge">vim</code>, a powerful text editor that I like to use. You only need to consider these options if you use it too.</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">" Turn on syntax highlighting and filetype specific stuff
+syntax on
+filetype indent plugin on
+filetype plugin on
+
+"</span> Move backups to <span class="nb">local </span>files <span class="o">(</span>note you need to make these directories first<span class="o">)</span>
+<span class="nb">set </span><span class="nv">backupdir</span><span class="o">=</span>~/.vim/vimbackup
+<span class="nb">set </span><span class="nv">directory</span><span class="o">=</span>~/.vim/vimswp
+
+<span class="s2">" Use spaces for indentation
+set expandtab
+set shiftwidth=4
+set softtabstop=4
+set autoindent
+
+"</span> Turn on line numbers
+<span class="nb">set </span>number
+
+<span class="s2">" Display cursor's current line and column position
+set ruler
+
+"</span> Highlight search hits <span class="k">in </span>file
+<span class="nb">set </span>hlsearch
+
+<span class="s2">" Use dark background colour schemes
+set background=dark
+
+"</span> Centre with <span class="s1">'&lt;space&gt;'</span>
+nmap &lt;space&gt; zz
+
+<span class="s2">" Keep centred when searching
+nmap n nzz
+nmap N Nzz
+
+"</span> Stop <span class="s1">'Ex'</span> mode being started when <span class="s1">'Q'</span> is typed
+nnoremap Q &lt;nop&gt;
+
+<span class="s2">" Stop 'q:' loading command history
+map q: &lt;nop&gt;
+
+"</span> Type aliases when trying to save and/or <span class="nb">exit
+command </span>W w
+<span class="nb">command </span>Wq wq
+<span class="nb">command </span>WQ wq
+<span class="nb">command </span>Q q
+
+<span class="s2">" Escape current most nested parens etc
+inoremap &lt;C-j&gt; &lt;Esc&gt;/[)}"</span><span class="s1">'\]&gt;]&lt;CR&gt;:nohl&lt;CR&gt;a
+
+" Swap character under cursor with the one on its right
+nnoremap &lt;silent&gt; gc xph
+
+" Type '</span>jk<span class="s1">' or '</span>kj<span class="s1">' quickly in succession to exit insert mode
+ino jk &lt;esc&gt;
+ino kj &lt;esc&gt;
+
+" Turn off highlighting with '</span>/<span class="se">\'</span>
+map /<span class="se">\ </span>:noh&lt;CR&gt;
+
+<span class="s2">" Spellchecking suggestions with ^X in normal mode
+nmap &lt;C-x&gt; i&lt;C-x&gt;s
+
+"</span> Move up/down one display line with &lt;C-k&gt;/&lt;C-j&gt; <span class="o">(</span>move within wrapped lines<span class="o">)</span>
+nmap &lt;C-k&gt; gk
+nmap &lt;C-j&gt; gj
+
+<span class="s2">" Move between splits with CTRL
+"</span> nmap &lt;silent&gt; &lt;C-k&gt; :wincmd k&lt;CR&gt;
+<span class="s2">" nmap &lt;silent&gt; &lt;C-j&gt; :wincmd j&lt;CR&gt;
+"</span> nmap &lt;silent&gt; &lt;C-h&gt; :wincmd h&lt;CR&gt;
+<span class="s2">" nmap &lt;silent&gt; &lt;C-l&gt; :wincmd l&lt;CR&gt;
+
+"</span> Enable persistent undo <span class="o">(</span>need to make undo directory first<span class="o">)</span>
+<span class="nb">set </span>undofile                <span class="s2">" Save undos after file closes
+set undodir=~/.vim/undo "</span> where to save undo histories
+<span class="nb">set </span><span class="nv">undolevels</span><span class="o">=</span>1000         <span class="s2">" How many undos
+set undoreload=10000        "</span> number of lines to save <span class="k">for </span>undo
+
+<span class="s2">" Tell vim to remember certain things when we exit
+"</span>  <span class="s1">'10  :  marks will be remembered for up to 10 previously edited files
+"  "100 :  will save up to 100 lines for each register
+"  :20  :  up to 20 lines of command-line history will be remembered
+"  %    :  saves and restores the buffer list
+"  n... :  where to save the viminfo files
+set viminfo='</span>10,<span class="se">\"</span>100,:20,%,n~/.viminfo
+
+<span class="s2">" Move to most recent position on reloading file
+function! ResCur()
+  if line("</span><span class="s1">'\"") &lt;= line("$")
+    normal! g`"
+    return 1
+  endif
+endfunction
+
+augroup resCur
+  autocmd!
+  autocmd BufWinEnter * call ResCur()
+augroup END
+</span></code></pre></div></div> <h5 id="bonus-inputrc-option">Bonus <code class="language-plaintext highlighter-rouge">.inputrc</code> option</h5> <p>You can use <code class="language-plaintext highlighter-rouge">vim</code>-like editing when typing in the command line by setting these options in <code class="language-plaintext highlighter-rouge">.inputrc</code>:</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Use Vi, not Emacs, style editing</span>
+<span class="nb">set </span>editing-mode vi
+<span class="nb">set </span>show-mode-in-prompt on
+
+<span class="nv">$if</span> <span class="nv">mode</span><span class="o">=</span>vi
+        <span class="nb">set </span>keymap vi-insert
+        <span class="c"># These are for vi-insert mode:</span>
+        <span class="c"># Exit insert mode with `jk` or `kj`</span>
+        <span class="s2">"jk"</span> vi-movement-mode
+        <span class="s2">"kj"</span> vi-movement-mode
+<span class="nv">$endif</span>
+</code></pre></div></div> <p><br/></p> <h4 id="any-comments">Any comments?</h4> <p>Feel free to submit an issue <a href="https://github.com/george-hall/george-hall.github.io/issues">here</a>.</p> <p><br/></p> <hr/> <h6><small> <b>Disclaimer:</b> The content in this post is provided as is, without warranty of any kind. I make no guarantees about the completeness, reliability, or accuracy of the code, tips, or advice presented. Any action you take based on this content is strictly at your own risk. I will not be liable for any losses, damages, or issues arising from the use or misuse of this information, including (but not limited to) loss of data, system failures, or security vulnerabilities. Always test code and approaches in a safe environment before deploying them in production. </small></h6>]]></content><author><name></name></author><category term="command_line"/><category term="unix"/><category term="macos"/><category term="bash"/><category term="vim"/><summary type="html"><![CDATA[I have been using the command line nearly every day for over a decade now. At first, this way of working feels inefficient, but you soon learn small changes that can be made to the interface to make your life easier. This page contains the most useful settings that I have collected over the years. If you see anything you think will be useful, you can copy the lines into your own configuration files. They are stored in your home directory and are hidden since their names begin with a dot.]]></summary></entry><entry><title type="html">How to check whether two directories are identical</title><link href="https://george-hall.github.io/blog/2025/verifying-whether-two-directories-identical/" rel="alternate" type="text/html" title="How to check whether two directories are identical"/><published>2025-12-18T00:00:00+00:00</published><updated>2025-12-18T00:00:00+00:00</updated><id>https://george-hall.github.io/blog/2025/verifying-whether-two-directories-identical</id><content type="html" xml:base="https://george-hall.github.io/blog/2025/verifying-whether-two-directories-identical/"><![CDATA[<p>When copying a directory containing many files, it is important to make sure that everything has copied correctly. This post shows a simple way of doing so (method based on answers given <a href="https://stackoverflow.com/questions/1657232/how-can-i-calculate-an-md5-checksum-of-a-directory">here</a>).</p> <p><br/></p> <h3 id="quick-start">Quick start</h3> <p>Run the following command at the root of each directory whose integrity you want to verify (i.e. the original directory and its copy). If the outputs match, then the directories contain the same contents.</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="o">{</span> find <span class="nb">.</span> <span class="nt">-type</span> f <span class="nt">-exec</span> <span class="nb">md5sum</span> <span class="o">{}</span> <span class="se">\;</span> <span class="o">&amp;&amp;</span> find <span class="nb">.</span> <span class="p">;</span> <span class="o">}</span> | <span class="nb">sort</span> <span class="nt">-k</span> 1 | <span class="nb">md5sum</span>
 </code></pre></div></div> <p>Read on to see the logic behind this approach (and some common pitfalls)!</p> <p><br/></p> <h3 id="md5-checksums"><code class="language-plaintext highlighter-rouge">md5</code> checksums</h3> <p>A <em>checksum</em> is a numeric summary of a file. There are many ways to compute them. The <code class="language-plaintext highlighter-rouge">md5</code> algorithm is a fast and simple option that can be run using the <code class="language-plaintext highlighter-rouge">md5sum</code> program. A good checksum changes substantially following even a small change to a file (e.g. a single letter being altered). For example, if we create two files, <code class="language-plaintext highlighter-rouge">file1.txt</code> and <code class="language-plaintext highlighter-rouge">file2.txt</code> that contain just “<code class="language-plaintext highlighter-rouge">text1</code>” and “<code class="language-plaintext highlighter-rouge">text2</code>”, respectively, then their <code class="language-plaintext highlighter-rouge">md5</code> checksums are completely different:</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">echo</span> <span class="s2">"text1"</span> <span class="o">&gt;</span> file1.txt
 <span class="nv">$ </span><span class="nb">echo</span> <span class="s2">"text2"</span> <span class="o">&gt;</span> file2.txt
 <span class="nv">$ </span><span class="nb">md5sum </span>file1.txt file2.txt

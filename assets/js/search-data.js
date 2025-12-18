@@ -69,6 +69,17 @@ ninja.data = [{
           window.location.href = "/blog/2025/verifying-whether-two-directories-identical/";
         
       },
+    },{id: "post-my-configuration-files",
+      
+        title: "My configuration files",
+      
+      description: "",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/blog/2025/command-line-configuration-files/";
+        
+      },
     },{id: "news-a-simple-inline-announcement",
           title: 'A simple inline announcement.',
           description: "",
