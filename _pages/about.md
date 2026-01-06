@@ -19,9 +19,9 @@ social: true  # includes social icons at the bottom of the page
 ---
 
 <br />
-I am a computer scientist developing algorithms for the analysis of single-cell and spatial RNAseq data. After completing [my PhD](projects/doctoral) in computer science, in which I laid a theoretical foundation for automated algorithm configuration, for my postdoctoral research I decided to take a position where algorithm design can be motivated by important real-world applications. I joined the UCL Great Ormond Street Institute of Child health, which allows me to develop algorithms to meet the needs of the world-renowned children's hospital. A summary of my postdoctoral research can be found [here](projects/postdoctoral).
-<br />
-<br />
+I am a researcher working at the intersection of computer science and biology. I develop new methods to better analyse complex biological datasets, namely single-cell and spatial transcriptomics.
+
+Following my PhD in computer science (where I created a [theoretical foundation](projects/doctoral) for automated algorithm configuration), I was motivated to design algorithms with important real-world applications. I thus joined the [UCL Great Ormond Street Institute of Child Health](https://www.ucl.ac.uk/population-health-sciences/child-health) to create new computational approaches alongside clinicians from the world-renowned children's hospital. A summary of my postdoctoral research can be found [here](projects/postdoctoral).
 <br />
 <br />
 <br />
