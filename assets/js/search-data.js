@@ -58,7 +58,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
-        },{id: "post-how-to-check-whether-two-directories-are-identical",
+        },{id: "post-running-ray-tune-on-sun-grid-engine",
+      
+        title: "Running Ray Tune on Sun Grid Engine",
+      
+      description: "",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/blog/2026/ray-tune-sge/";
+        
+      },
+    },{id: "post-how-to-check-whether-two-directories-are-identical",
       
         title: "How to check whether two directories are identical",
       
