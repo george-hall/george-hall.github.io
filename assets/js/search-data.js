@@ -58,7 +58,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
-        },{id: "post-running-ray-tune-on-sun-grid-engine",
+        },{id: "post-git-basics",
+      
+        title: "Git basics",
+      
+      description: "",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/blog/2026/into-to-git/";
+        
+      },
+    },{id: "post-running-ray-tune-on-sun-grid-engine",
       
         title: "Running Ray Tune on Sun Grid Engine",
       
