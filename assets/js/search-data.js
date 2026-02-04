@@ -58,7 +58,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
-        },{id: "post-git-basics",
+        },{id: "post-summary-of-vega",
+      
+        title: "Summary of VEGA",
+      
+      description: "",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/blog/2026/vega/";
+        
+      },
+    },{id: "post-git-basics",
       
         title: "Git basics",
       
