@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Running Ray Tune on Sun Grid Engine
+description: The Ray Tune hyperparameter optimization framework does not natively support the Sun Grid Engine (SGE) job submission system. This post shows a way to implement support.
 date: 2026-01-05
 tags: unix ray-tune machine-learning hyperparameter-optimization
 categories:

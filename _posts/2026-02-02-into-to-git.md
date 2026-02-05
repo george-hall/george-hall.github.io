@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Git basics
+description: An introduction to version control with git with an emphasis on getting you comfortable using it without unnecessary details.
 date: 2026-01-30
 tags: git
 categories:

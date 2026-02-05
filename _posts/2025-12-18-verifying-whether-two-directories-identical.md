@@ -1,6 +1,7 @@
 ---
 layout: post
 title: How to check whether two directories are identical
+description: If you are transferring your files, you need to make sure that they have copied correctly! This post shows a simple way to do so.
 date: 2025-12-18
 tags: unix macos bash
 categories: command_line

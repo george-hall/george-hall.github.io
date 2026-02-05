@@ -1,6 +1,7 @@
 ---
 layout: post
 title: My configuration files
+description: I have slowly accumulated many configuration options in my command line settings files. This post shows how I have configured bashrc, inputrc, and vimrc.
 date: 2025-12-18
 tags: unix macos bash vim
 categories: command_line
