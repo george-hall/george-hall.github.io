@@ -19,7 +19,7 @@ Run the following command at the root of each directory whose integrity you want
 $ { find . -type f -exec md5sum {} \; && find . ; } | sort -k 1 | md5sum
 ```
 
-Read on to see the logic behind this approach (and some common pitfalls)!
+Read on to see the logic behind this approach (and some common pitfalls)! We will also look at how to troubleshoot if these commands return different results.
 
 <br>
 
