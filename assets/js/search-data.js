@@ -62,7 +62,7 @@ ninja.data = [{
       
         title: "Summary of VEGA",
       
-      description: "",
+      description: "DRAFT POST -- A summary of the autoencoder architecture of VEGA (&quot;VAE Enhanced by Gene Annotations&quot;).",
       section: "Posts",
       handler: () => {
         
@@ -73,7 +73,7 @@ ninja.data = [{
       
         title: "Git basics",
       
-      description: "",
+      description: "An introduction to version control with git with an emphasis on getting you comfortable using it without unnecessary details.",
       section: "Posts",
       handler: () => {
         
@@ -84,7 +84,7 @@ ninja.data = [{
       
         title: "Running Ray Tune on Sun Grid Engine",
       
-      description: "",
+      description: "The Ray Tune hyperparameter optimization framework does not natively support the Sun Grid Engine (SGE) job submission system. This post shows a way to implement support.",
       section: "Posts",
       handler: () => {
         
@@ -95,7 +95,7 @@ ninja.data = [{
       
         title: "How to check whether two directories are identical",
       
-      description: "",
+      description: "If you are transferring your files, you need to make sure that they have copied correctly! This post shows a simple way to do so.",
       section: "Posts",
       handler: () => {
         
@@ -106,7 +106,7 @@ ninja.data = [{
       
         title: "My configuration files",
       
-      description: "",
+      description: "I have slowly accumulated many configuration options in my command line settings files. This post shows how I have configured bashrc, inputrc, and vimrc.",
       section: "Posts",
       handler: () => {
         
